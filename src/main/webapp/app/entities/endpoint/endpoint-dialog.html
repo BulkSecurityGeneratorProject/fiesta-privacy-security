@@ -1,0 +1,120 @@
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation xmlns="http://www.w3.org/1999/html">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myEndpointLabel">Edit Endpoint Policy</h4>
+    </div>
+    <div class="modal-body">
+        <jbt-alert-error></jbt-alert-error>
+        <div class="form-group" ng-show="vm.endpoint.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.endpoint.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_url">Url</label>
+            <input type="text" class="form-control" name="url" id="field_url"
+                    ng-model="vm.endpoint.url"
+                    required readonly/>
+            <div ng-show="editForm.url.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.url.$error.required" >
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="field_sensorOrignalId">Sensor Orignal Id</label>
+            <input type="text" class="form-control" name="sensorOrignalId" id="field_sensorOrignalId"
+                    ng-model="vm.endpoint.sensorOrignalId" readonly
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_sensorHashId">Sensor Id</label>
+            <input type="text" class="form-control" name="sensorHashId" id="field_sensorHashId"
+                    ng-model="vm.endpoint.sensorHashId" readonly
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_testbedName">Testbed Name</label>
+            <input type="text" class="form-control" name="testbedName" id="field_testbedName"
+                    ng-model="vm.endpoint.testbedName" readonly
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_testbedId">Testbed Id</label>
+            <input type="number" class="form-control" name="testbedId" id="field_testbedId"
+                    ng-model="vm.endpoint.testbedId" readonly
+                    />
+        </div>
+
+
+
+        <div class="form-group">
+            <label class="control-label" for="field_isPublic">Public</label>
+            <input type="checkbox" name="isPublic" id="field_isPublic"
+                   ng-model="vm.isPublic" ng-change="checkPublic()"/>
+
+            <label class="control-label" for="field_isPrivate">Private</label>
+            <input type="checkbox" name="isPrivate" id="field_isPrivate"
+                   ng-model="vm.isPrivate" ng-change="checkPrivate()"/>
+
+        </div>
+
+
+        <div class = "form-group" ng-show = "vm.isPrivate">
+            <div>
+                <h2>Config Policy</h2>
+                <jbt-alert></jbt-alert>
+
+
+                <br/>
+                <div class="table-responsive">
+                    <table class="jh-table table table-striped">
+                        <thead>
+                        <tr >
+
+
+                            <th ><span>User Id</span> <span class="glyphicon"></span></th>
+                            <th ><span>Visible</span> <span class="glyphicon"></span></th>
+                            <th ><span>Allow Access</span> <span class="glyphicon"></span></th>
+                            <th ><span>Disallow Access</span> <span class="glyphicon"></span></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="endpointUser in vm.endpointUsers track by endpointUser.id">
+
+
+                            <td>{{endpointUser.userId}}</td>
+                            <td>  <input type="checkbox" name="visible" id="field_visible"
+                                         ng-model="endpointUser.visible"/></td>
+
+                            <td><input type="checkbox" name="allowAccess" id="field_allowAccess"
+                                       ng-model="endpointUser.allowAccess"/></td>
+
+                            <td> <input type="checkbox" name="disallowAccess" id="field_disallowAccess"
+                                        ng-model="endpointUser.disallowAccess" ng-change="disallowAccessAll(endpointUser, endpointUser.disallowAccess,endpointUser.allowAccess,endpointUser.visible)"/></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

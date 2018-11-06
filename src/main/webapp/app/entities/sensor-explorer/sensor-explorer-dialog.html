@@ -1,0 +1,108 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="mySensorExplorerLabel">Create or edit a Sensor Explorer</h4>
+    </div>
+    <div class="modal-body">
+        <jbt-alert-error></jbt-alert-error>
+        <div class="form-group" ng-show="vm.sensorExplorer.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.sensorExplorer.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_endp">Endp</label>
+            <input type="text" class="form-control" name="endp" id="field_endp"
+                    ng-model="vm.sensorExplorer.endp"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_unit">Unit</label>
+            <input type="text" class="form-control" name="unit" id="field_unit"
+                    ng-model="vm.sensorExplorer.unit"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_qk">Qk</label>
+            <input type="text" class="form-control" name="qk" id="field_qk"
+                    ng-model="vm.sensorExplorer.qk"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_sensor">Sensor</label>
+            <input type="text" class="form-control" name="sensor" id="field_sensor"
+                    ng-model="vm.sensorExplorer.sensor"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_hashedSensor">Hashed Sensor</label>
+            <input type="text" class="form-control" name="hashedSensor" id="field_hashedSensor"
+                    ng-model="vm.sensorExplorer.hashedSensor"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_displaySensor">Display Sensor</label>
+            <input type="text" class="form-control" name="displaySensor" id="field_displaySensor"
+                    ng-model="vm.sensorExplorer.displaySensor"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_type">Type</label>
+            <input type="text" class="form-control" name="type" id="field_type"
+                    ng-model="vm.sensorExplorer.type"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_shortQk">Short Qk</label>
+            <input type="text" class="form-control" name="shortQk" id="field_shortQk"
+                    ng-model="vm.sensorExplorer.shortQk"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_shortUnit">Short Unit</label>
+            <input type="text" class="form-control" name="shortUnit" id="field_shortUnit"
+                    ng-model="vm.sensorExplorer.shortUnit"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_lng">Lng</label>
+            <input type="number" class="form-control" name="lng" id="field_lng"
+                    ng-model="vm.sensorExplorer.lng"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_lat">Lat</label>
+            <input type="number" class="form-control" name="lat" id="field_lat"
+                    ng-model="vm.sensorExplorer.lat"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_sensorData">Sensor Data</label>
+            <input type="text" class="form-control" name="sensorData" id="field_sensorData"
+                    ng-model="vm.sensorExplorer.sensorData"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_created">Created</label>
+                <div class="input-group">
+                    <input id="field_created" type="text" class="form-control" name="created" datetime-picker="{{dateformat}}" ng-model="vm.sensorExplorer.created" is-open="vm.datePickerOpenStatus.created"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('created')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

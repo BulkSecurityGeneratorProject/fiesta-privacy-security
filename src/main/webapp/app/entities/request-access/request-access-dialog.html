@@ -1,0 +1,52 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myRequestAccessLabel">Create or edit a Request Access</h4>
+    </div>
+    <div class="modal-body">
+        <jbt-alert-error></jbt-alert-error>
+        <div class="form-group" ng-show="vm.requestAccess.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.requestAccess.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_content">Content</label>
+                <textarea class="form-control" name="content" id="field_content"
+                    ng-model="vm.requestAccess.content" ></textarea>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label" for="field_approved">Approved</label>
+            <input type="checkbox" name="approved" id="field_approved"
+                   ng-model="vm.requestAccess.approved" ng-change = "checkApproved()"/>
+
+            <label class="control-label" for="field_rejected">Reject</label>
+            <input type="checkbox" name="rejected" id="field_rejected"
+                   ng-model="vm.requestAccess.rejected" ng-change ="checkRejected()"/>
+
+        </div>
+
+
+
+        <div class="form-group">
+
+            <input type="text" class="form-control" id="requestSensorId" name="requestSensorId"
+                   ng-model="vm.requestAccess.requestSensorId" readonly />
+
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

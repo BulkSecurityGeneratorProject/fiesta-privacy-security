@@ -1,0 +1,63 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "endp",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "unit",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "qk",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sensor",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hashedSensor",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "displaySensor",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "shortQk",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "shortUnit",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lng",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "lat",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "sensorData",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "created",
+            "fieldType": "Instant"
+        }
+    ],
+    "changelogDate": "20180222141256",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "sensor_explorer",
+    "pagination": "pagination"
+}

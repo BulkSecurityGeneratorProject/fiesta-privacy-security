@@ -1,0 +1,23 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "status",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "created",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "updated",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "changelogDate": "20180109114232",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "endpoint_sync",
+    "pagination": "pagination"
+}

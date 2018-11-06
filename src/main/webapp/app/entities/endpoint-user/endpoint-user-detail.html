@@ -1,0 +1,47 @@
+
+<div>
+    <h2><span>Endpoint User</span> {{vm.endpointUser.id}}</h2>
+    <hr>
+    <jbt-alert-error></jbt-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Sensor Id</span></dt>
+        <dd>
+            <span>{{vm.endpointUser.sensorId}}</span>
+        </dd>
+        <dt><span>Endpoint Url</span></dt>
+        <dd>
+            <span>{{vm.endpointUser.endpointUrl}}</span>
+        </dd>
+        <dt><span>Original Sensor Id</span></dt>
+        <dd>
+            <span>{{vm.endpointUser.originalSensorId}}</span>
+        </dd>
+        <dt><span>User Id</span></dt>
+        <dd>
+            <span>{{vm.endpointUser.userId}}</span>
+        </dd>
+        <dt><span>Visible</span></dt>
+        <dd>
+            <span>{{vm.endpointUser.visible}}</span>
+        </dd>
+        <dt><span>Allow Access</span></dt>
+        <dd>
+            <span>{{vm.endpointUser.allowAccess}}</span>
+        </dd>
+        <dt><span>Disallow Access</span></dt>
+        <dd>
+            <span>{{vm.endpointUser.disallowAccess}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="endpoint-user-detail.edit({id:vm.endpointUser.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

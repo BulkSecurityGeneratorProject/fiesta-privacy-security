@@ -1,0 +1,42 @@
+
+<div>
+    <h2><span>Sensor Information</span></h2>
+    <hr>
+    <jbt-alert-error></jbt-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Endp</span></dt>
+        <dd>
+            <span>{{vm.sensorExplorer.url}}</span>
+        </dd>
+        <dt><span>Unit</span></dt>
+        <dd>
+            <span>{{vm.sensorExplorer.unit}}</span>
+        </dd>
+        <dt><span>QuantityKind</span></dt>
+        <dd>
+            <span>{{vm.sensorExplorer.quantityKind}}</span>
+        </dd>
+
+        <dt><span>Longitude</span></dt>
+        <dd>
+            <span>{{vm.sensorExplorer.lng}}</span>
+        </dd>
+        <dt><span>Latitude</span></dt>
+        <dd>
+            <span>{{vm.sensorExplorer.lat}}</span>
+        </dd>
+
+
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <!--<button type="button" ui-sref="sensor-explorer-detail.edit({id:vm.sensorExplorer.id})" class="btn btn-primary">-->
+        <!--<span class="glyphicon glyphicon-pencil"></span>-->
+        <!--<span class="hidden-sm-down"> Edit</span>-->
+    <!--</button>-->
+</div>

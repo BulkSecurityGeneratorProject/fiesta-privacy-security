@@ -1,0 +1,40 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "userId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sensorId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "originalSensorId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "endpointUrl",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "accessStatus",
+            "fieldType": "AccessStatus",
+            "fieldValues": "SUCCESS,FAIL"
+        },
+        {
+            "fieldName": "accessTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "testbedId",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180322124931",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "access_log",
+    "pagination": "pagination"
+}

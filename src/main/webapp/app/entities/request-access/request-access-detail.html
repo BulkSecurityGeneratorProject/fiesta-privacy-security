@@ -1,0 +1,75 @@
+
+<div>
+    <h2><span>Request Access</span> {{vm.requestAccess.id}}</h2>
+    <hr>
+    <jbt-alert-error></jbt-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Content</span></dt>
+        <dd>
+            <span>{{vm.requestAccess.content}}</span>
+        </dd>
+        <dt><span>Sensor Hash Id</span></dt>
+        <dd>
+            <span>{{vm.requestAccess.sensorHashId}}</span>
+        </dd>
+        <dt><span>Sensor Original Id</span></dt>
+        <dd>
+            <span>{{vm.requestAccess.sensorOriginalId}}</span>
+        </dd>
+        <dt><span>Sensor Endpoint</span></dt>
+        <dd>
+            <span>{{vm.requestAccess.sensorEndpoint}}</span>
+        </dd>
+        <dt><span>Requester Id</span></dt>
+        <dd>
+            <span>{{vm.requestAccess.requesterId}}</span>
+        </dd>
+        <dt><span>Receiver Id</span></dt>
+        <dd>
+            <span>{{vm.requestAccess.receiverId}}</span>
+        </dd>
+        <dt><span>Seen By Requester</span></dt>
+        <dd>
+            <span>{{vm.requestAccess.seenByRequester}}</span>
+        </dd>
+        <dt><span>Seen By Receiver</span></dt>
+        <dd>
+            <span>{{vm.requestAccess.seenByReceiver}}</span>
+        </dd>
+        <dt><span>Approved</span></dt>
+        <dd>
+            <span>{{vm.requestAccess.approved}}</span>
+        </dd>
+        <dt><span>Request Date</span></dt>
+        <dd>
+            <span>{{vm.requestAccess.requestDate | date:'medium'}}</span>
+        </dd>
+        <dt><span>Approved Date</span></dt>
+        <dd>
+            <span>{{vm.requestAccess.approvedDate | date:'medium'}}</span>
+        </dd>
+        <dt><span>Seen By Requester Date</span></dt>
+        <dd>
+            <span>{{vm.requestAccess.seenByRequesterDate | date:'medium'}}</span>
+        </dd>
+        <dt><span>Seen By Receiver Date</span></dt>
+        <dd>
+            <span>{{vm.requestAccess.seenByReceiverDate | date:'medium'}}</span>
+        </dd>
+        <dt><span>Request Sensor Id</span></dt>
+        <dd>
+            <span>{{vm.requestAccess.requestSensorId}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="request-access-detail.edit({id:vm.requestAccess.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

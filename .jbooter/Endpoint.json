@@ -1,0 +1,75 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "fiestaUser",
+            "otherEntityName": "fiestaUser",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "username",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "endpoint"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "url",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "quantityKind",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "unit",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lat",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "lng",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "created",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "updated",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "sensorOrignalId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sensorHashId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "testbedName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "testbedId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "testbedResourceId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "userID",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180109112623",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "endpoint",
+    "pagination": "pagination"
+}

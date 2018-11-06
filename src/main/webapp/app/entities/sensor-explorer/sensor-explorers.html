@@ -1,0 +1,112 @@
+<div>
+    <h2>Sensor Explorers</h2>
+    <jbt-alert></jbt-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <label class="control-label" for="field_quantity">Select Quantity</label>
+                <select class="form-control" id="field_quantity" name="selectedQuantitykind" ng-model="vm.searchQuery" ng-options="quantitykind for quantitykind in vm.quantityKinds | orderBy:'toString()' "    ng-change = "selectQuantitykind()" >
+                    <option value="">-- Select quantity kind --</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <!--<th jh-sort-by="endp"><span>Endp</span> <span class="glyphicon glyphicon-sort"></span></th>-->
+                    <!--<th jh-sort-by="unit"><span>Unit</span> <span class="glyphicon glyphicon-sort"></span></th>-->
+                    <!--<th jh-sort-by="qk"><span>Qk</span> <span class="glyphicon glyphicon-sort"></span></th>-->
+                    <!--<th jh-sort-by="sensor"><span>Sensor</span> <span class="glyphicon glyphicon-sort"></span></th>-->
+                    <!--<th jh-sort-by="hashedSensor"><span>Hashed Sensor</span> <span class="glyphicon glyphicon-sort"></span></th>-->
+                    <!--<th jh-sort-by="displaySensor"><span>Display Sensor</span> <span class="glyphicon glyphicon-sort"></span></th>-->
+                    <!--<th jh-sort-by="type"><span>Type</span> <span class="glyphicon glyphicon-sort"></span></th>-->
+                    <th jh-sort-by="shortQk"><span>Quantity kind</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="shortUnit"><span>Unit</span> <span class="glyphicon glyphicon-sort"></span></th>
+
+                    <th jh-sort-by="lat"><span>Latiutde</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="lng"><span>Longitude</span> <span class="glyphicon glyphicon-sort"></span></th>
+
+                    <th jh-sort-by="lng"><span>Status</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <!--<th jh-sort-by="sensorData"><span>Sensor Data</span> <span class="glyphicon glyphicon-sort"></span></th>-->
+                    <th ><span>Action</span> <span class="glyphicon"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="sensorExplorer in vm.sensorExplorers track by sensorExplorer.id">
+                    <td><a ui-sref="sensor-explorer-detail({id:sensorExplorer.id})">{{sensorExplorer.id}}</a></td>
+                    <!--<td>{{sensorExplorer.endp}}</td>-->
+                    <!--<td>{{sensorExplorer.unit}}</td>-->
+                    <!--<td>{{sensorExplorer.qk}}</td>-->
+                    <!--<td>{{sensorExplorer.sensor}}</td>-->
+                    <!--<td>{{sensorExplorer.hashedSensor}}</td>-->
+                    <!--<td>{{sensorExplorer.displaySensor}}</td>-->
+                    <!--<td>{{sensorExplorer.type}}</td>-->
+                    <td>{{sensorExplorer.quantityKind}}</td>
+                    <td>{{sensorExplorer.unit}}</td>
+
+                    <td>{{sensorExplorer.lat}}</td>
+                    <td>{{sensorExplorer.lng}}</td>
+
+                    <td>
+                        <div ng-if="sensorExplorer.sendRequest">
+                            <span> Requested</span>
+                            <div class="progress progress-xs">
+                                <div class="progress-bar progress-bar-warning" style="width: 55%"></div>
+                            </div>
+                        </div>
+                        <div ng-if="sensorExplorer.requestApproved">
+                            <span> Approve Access</span>
+                            <div class="progress progress-xs">
+                                <div class="progress-bar progress-bar-success" style="width: 55%"></div>
+                            </div>
+                        </div>
+                        <div ng-if="sensorExplorer.requestDennied">
+                            <span> Block Access</span>
+                            <div class="progress progress-xs">
+                                <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                            </div>
+                        </div>
+
+                    </td>
+                    <!--<td>{{sensorExplorer.sensorData}}</td>-->
+                    <!--<td>{{sensorExplorer.created | date:'medium'}}</td>-->
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="sensor-explorer-detail({id:sensorExplorer.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit" ng-if="sensorExplorer.sendRequest == false"
+                                    ui-sref="sensor-explorer.edit({id:sensorExplorer.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+
+
+
+                            <!--<button type="submit"-->
+                                    <!--ui-sref="sensor-explorer.delete({id:sensorExplorer.id})"-->
+                                    <!--class="btn btn-danger btn-sm">-->
+                                <!--<span class="glyphicon glyphicon-remove-circle"></span>-->
+                                <!--<span class="hidden-sm-down"></span>-->
+                            <!--</button>-->
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jbt-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jbt-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+
+    </div>
+</div>

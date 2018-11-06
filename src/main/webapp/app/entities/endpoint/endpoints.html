@@ -1,0 +1,243 @@
+<div>
+    <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua"> <span class="glyphicon glyphicon-cog
+"></span><i class="ion ion-ios-gear-outline"></i></span>
+
+                <div class="info-box-content">
+
+                    <span class="info-box-text">Total Devices</span>
+                    <span class="info-box-number">{{vm.testbedInformation.totalDevices}}<small></small></span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-red"> <span class="glyphicon glyphicon-user"></span><i class="fa fa-google-plus"></i></span>
+
+                <div class="info-box-content">
+
+                    <span class="info-box-text">Users</span>
+                    <span class="info-box-number">{{vm.testbedInformation.totalUsers}}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+        <!-- fix for small devices only -->
+        <div class="clearfix visible-sm-block"></div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-green"> <span class="glyphicon glyphicon-share"></span> <i class="ion ion-ios-cart-outline"></i></span>
+
+                <div class="info-box-content">
+
+                    <span class="info-box-text">Shared Devices</span>
+                    <span class="info-box-number">{{vm.testbedInformation.totalSharedDevices}}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-yellow"><span class="glyphicon glyphicon-comment"></span><i class="ion ion-ios-people-outline"></i></span>
+
+                <div class="info-box-content">
+
+                    <span class="info-box-text">New Request</span>
+                    <span class="info-box-number">{{vm.testbedInformation.totalRequest}}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+    </div>
+
+
+
+    <div class="row">
+        </br>
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Config Policy for Endpoints</h3>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-xs-2 no-padding-left">
+                        <button class="btn btn-primary" ui-sref="home.new" >
+                            <span class="glyphicon glyphicon-plus"></span>
+                            <span >
+                        Policy For All Endpoints
+                    </span>
+                        </button>
+                    </div>
+                    <div class="col-xs-2 no-padding-left">
+                        <button class="btn btn-primary" ui-sref="endpoint" >
+                            <span class="glyphicon glyphicon-plus"></span>
+                            <span >
+                        Policy For Single Endpoint
+                    </span>
+                        </button>
+                    </div>
+
+                    <div class="col-xs-2 no-padding-left">
+                        <button class="btn btn-primary" ui-sref="shared-endpoint" >
+                            <span class="glyphicon glyphicon-print"></span>
+                            <span >
+                        Shared Devices
+                    </span>
+                        </button>
+                    </div>
+
+
+                    <div class="col-xs-2 no-padding-left">
+                        <button class="btn btn-primary" ui-sref="request-access" >
+                            <span class="glyphicon glyphicon-envelope"></span>
+                            <span >
+                        Request Access
+                    </span>
+                        </button>
+                    </div>
+
+                    <div class="col-xs-2 no-padding-left">
+                        <button class="btn btn-primary" ui-sref="access-log" >
+                            <span class="glyphicon glyphicon-print"></span>
+                            <span >
+                        Access Logs
+                    </span>
+                        </button>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+            </br>
+
+        </div>
+        </br>
+    </div>
+
+
+
+
+    <div  class = "row">
+
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Testbed Information</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+                <table class="table table-condensed">
+                    <tbody><tr>
+                        <th style="width: 10px">#</th>
+                        <th tyle="width: 40px">Name</th>
+
+                        <th >Information</th>
+                    </tr>
+                    <tr>
+                        <td>1.</td>
+                        <td>Name</td>
+                        <td>
+                            {{vm.testbedInformation.name}}
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>2.</td>
+                        <td>Location</td>
+                        <td>
+                            {{vm.testbedInformation.locationLat}}, {{vm.testbedInformation.locationLong}}
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>3.</td>
+                        <td>userID</td>
+                        <td>
+                            {{vm.testbedInformation.userID}}
+                        </td>
+
+                    </tr>
+
+                    </tbody></table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+
+    </div>
+
+
+
+    <br/>
+            <div class="table-responsive">
+                <table class="jh-table table table-striped">
+                    <thead>
+                    <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                        <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                        <th jh-sort-by="url"><span>Sensor</span> <span class="glyphicon glyphicon-sort"></span></th>
+                        <th><span>Public/Private</span></th>
+
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="endpoint in vm.endpoints track by endpoint.id">
+                        <td><a ui-sref="endpoint-detail({id:endpoint.id})">{{endpoint.id}}</a></td>
+                        <td>{{endpoint.sensorOrignalId}}</td>
+
+                        <td>
+                            <span ng-if="endpoint.public">Public Access</span>
+                            <span ng-if="endpoint.private">Private Access</span>
+
+                        </td>
+
+                        <td class="text-right">
+                            <div class="btn-group flex-btn-group-container">
+                                <button type="submit"
+                                        ui-sref="endpoint-detail({id:endpoint.id})"
+                                        class="btn btn-info btn-sm">
+                                    <span class="glyphicon glyphicon-eye-open"></span>
+                                    <span class="hidden-sm-down"></span>
+                                </button>
+                                <button type="submit"
+                                        ui-sref="endpoint.edit({id:endpoint.id})"
+                                        class="btn btn-primary btn-sm">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                    <span class="hidden-sm-down"></span>
+                                </button>
+                                <button type="submit"
+                                        ui-sref="endpoint.delete({id:endpoint.id})"
+                                        class="btn btn-danger btn-sm">
+                                    <span class="glyphicon glyphicon-remove-circle"></span>
+                                    <span class="hidden-sm-down"></span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="text-center">
+                <jbt-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jbt-item-count>
+                <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+            </div>
+        </div>
+    </div>
+
+
+</div>

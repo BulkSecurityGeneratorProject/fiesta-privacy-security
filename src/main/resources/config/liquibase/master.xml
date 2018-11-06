@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20180109112623_added_entity_Endpoint.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20180109113348_added_entity_Experimenter.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20180109113727_added_entity_EndpointPolicy.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20180109114232_added_entity_EndpointSync.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20180124121431_added_entity_FiestaUser.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20180124121538_added_entity_FiestaUserSync.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20180125145409_added_entity_EndpointsConfig.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20180222135223_added_entity_RequestAccess.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20180222141256_added_entity_SensorExplorer.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20180316125235_added_entity_EndpointUser.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20180322124931_added_entity_AccessLog.xml" relativeToChangelogFile="false"/>
+    <!-- jbooter-needle-liquibase-add-changelog - JBooter will add liquibase changelogs here -->
+    <include file="classpath:config/liquibase/changelog/20180109112623_added_entity_constraints_Endpoint.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20180125145409_added_entity_constraints_EndpointsConfig.xml" relativeToChangelogFile="false"/>
+    <!-- jbooter-needle-liquibase-add-constraints-changelog - JBooter will add liquibase constraints changelogs here -->
+</databaseChangeLog>

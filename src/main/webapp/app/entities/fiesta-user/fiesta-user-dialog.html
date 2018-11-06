@@ -1,0 +1,56 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myFiestaUserLabel">Create or edit a Fiesta User</h4>
+    </div>
+    <div class="modal-body">
+        <jbt-alert-error></jbt-alert-error>
+        <div class="form-group" ng-show="vm.fiestaUser.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.fiestaUser.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_username">Username</label>
+            <input type="text" class="form-control" name="username" id="field_username"
+                    ng-model="vm.fiestaUser.username"
+                    required/>
+            <div ng-show="editForm.username.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.username.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_userId">User Id</label>
+            <input type="text" class="form-control" name="userId" id="field_userId"
+                    ng-model="vm.fiestaUser.userId"
+                    required/>
+            <div ng-show="editForm.userId.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.userId.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_groups">Groups</label>
+            <input type="text" class="form-control" name="groups" id="field_groups"
+                    ng-model="vm.fiestaUser.groups"
+                    />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

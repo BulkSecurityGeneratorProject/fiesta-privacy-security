@@ -1,0 +1,256 @@
+<div>
+
+
+    <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua"> <span class="glyphicon glyphicon-cog
+"></span><i class="ion ion-ios-gear-outline"></i></span>
+
+                <div class="info-box-content">
+
+                    <span class="info-box-text">Total Devices</span>
+                    <span class="info-box-number">{{vm.testbedInformation.totalDevices}}<small></small></span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-red"> <span class="glyphicon glyphicon-user"></span><i class="fa fa-google-plus"></i></span>
+
+                <div class="info-box-content">
+
+                    <span class="info-box-text">Users</span>
+                    <span class="info-box-number">{{vm.testbedInformation.totalUsers}}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+        <!-- fix for small devices only -->
+        <div class="clearfix visible-sm-block"></div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-green"> <span class="glyphicon glyphicon-share"></span> <i class="ion ion-ios-cart-outline"></i></span>
+
+                <div class="info-box-content">
+
+                    <span class="info-box-text">Shared Devices</span>
+                    <span class="info-box-number">{{vm.testbedInformation.totalSharedDevices}}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-yellow"><span class="glyphicon glyphicon-comment"></span><i class="ion ion-ios-people-outline"></i></span>
+
+                <div class="info-box-content">
+
+                    <span class="info-box-text">New Request</span>
+                    <span class="info-box-number">{{vm.testbedInformation.totalRequest}}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+    </div>
+
+
+
+    <div class="row">
+        </br>
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Config Policy for Endpoints</h3>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-xs-2 no-padding-left">
+                        <button class="btn btn-primary" ui-sref="home.new" >
+                            <span class="glyphicon glyphicon-plus"></span>
+                            <span >
+                        Policy All Endpoints
+                    </span>
+                        </button>
+                    </div>
+                    <div class="col-xs-2 no-padding-left">
+                        <button class="btn btn-primary" ui-sref="endpoint" >
+                            <span class="glyphicon glyphicon-plus"></span>
+                            <span >
+                        Policy Single Endpoint
+                    </span>
+                        </button>
+                    </div>
+
+                    <div class="col-xs-2 no-padding-left">
+                        <button class="btn btn-primary" ui-sref="shared-endpoint" >
+                            <span class="glyphicon glyphicon-print"></span>
+                            <span >
+                        Shared Devices
+                    </span>
+                        </button>
+                    </div>
+
+
+                    <div class="col-xs-2 no-padding-left">
+                        <button class="btn btn-primary" ui-sref="request-access" >
+                            <span class="glyphicon glyphicon-envelope"></span>
+                            <span >
+                        Request Access
+                    </span>
+                        </button>
+                    </div>
+
+                    <div class="col-xs-2 no-padding-left">
+                        <button class="btn btn-primary" ui-sref="access-log" >
+                            <span class="glyphicon glyphicon-print"></span>
+                            <span >
+                        Access Logs
+                    </span>
+                        </button>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+            </br>
+
+        </div>
+        </br>
+    </div>
+
+
+
+
+    <div  class = "row">
+
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Testbed Information</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+                <table class="table table-condensed">
+                    <tbody><tr>
+                        <th style="width: 10px">#</th>
+                        <th tyle="width: 40px">Name</th>
+
+                        <th >Information</th>
+                    </tr>
+                    <tr>
+                        <td>1.</td>
+                        <td>Name</td>
+                        <td>
+                            {{vm.testbedInformation.name}}
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>2.</td>
+                        <td>Location</td>
+                        <td>
+                            {{vm.testbedInformation.locationLat}}, {{vm.testbedInformation.locationLong}}
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>3.</td>
+                        <td>userID</td>
+                        <td>
+                            {{vm.testbedInformation.userID}}
+                        </td>
+
+                    </tr>
+
+                    </tbody></table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+
+    </div>
+
+
+
+    <h2>Request Accesses</h2>
+    <jbt-alert></jbt-alert>
+
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+            <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                <th jh-sort-by="content"><span>Content</span> <span class="glyphicon glyphicon-sort"></span></th>
+                <th jh-sort-by="sensorOriginalId"><span>Sensor Original Id</span> <span class="glyphicon glyphicon-sort"></span></th>
+                <th jh-sort-by="requesterId"><span>Request User</span> <span class="glyphicon glyphicon-sort"></span></th>
+                <th><span>Status</span> <span class="glyphicon glyphicon-sort"></span></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="requestAccess in vm.requestAccesses track by requestAccess.id">
+                <td><a ui-sref="request-access-detail({id:requestAccess.id})">{{requestAccess.id}}</a></td>
+                <td>{{requestAccess.content}}</td>
+                <td>{{requestAccess.sensorOriginalId}}</td>
+                <td>{{requestAccess.requesterId}}</td>
+                <td>
+                    <div ng-if="requestAccess.approved == null">
+                        <span> Waiting</span>
+                        <div class="progress progress-xs">
+                            <div class="progress-bar progress-bar-warning" style="width: 55%"></div>
+                        </div>
+                    </div>
+                    <div ng-if="requestAccess.approved">
+                        <span> Approved</span>
+                        <div class="progress progress-xs">
+                            <div class="progress-bar progress-bar-success" style="width: 55%"></div>
+                        </div>
+                    </div>
+                    <div ng-if="requestAccess.rejected">
+                        <span> Rejected</span>
+                        <div class="progress progress-xs">
+                            <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                        </div>
+                    </div>
+
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                ui-sref="request-access-detail({id:requestAccess.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                            <span class="hidden-sm-down"></span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="request-access.edit({id:requestAccess.id})"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                            <span class="hidden-sm-down"></span>
+                        </button>
+
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jbt-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jbt-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

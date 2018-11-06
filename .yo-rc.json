@@ -1,0 +1,32 @@
+{
+  "generator-jbooter": {
+    "promptValues": {
+      "packageName": "eu.fiestaiot.security.ui"
+    },
+    "jbooterVersion": "1.5.3",
+    "baseName": "FiestaSecurityUI",
+    "packageName": "eu.fiestaiot.security.ui",
+    "packageFolder": "eu/fiestaiot/security/ui",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "hibernateCache": "no",
+    "clusteredHttpSession": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSocialSignIn": false,
+    "jwtSecretKey": "432e692654e91298313a602cc0cabbe9a45c014f",
+    "clientFramework": "angular1",
+    "useSass": false,
+    "clientPackageManager": "yarn",
+    "applicationType": "monolith",
+    "testFrameworks": [],
+    "jbtPrefix": "jbt",
+    "enableTranslation": false
+  }
+}

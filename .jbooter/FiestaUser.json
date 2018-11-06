@@ -1,0 +1,29 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "username",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "userId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "groups",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180124121431",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "fiesta_user",
+    "pagination": "pagination"
+}

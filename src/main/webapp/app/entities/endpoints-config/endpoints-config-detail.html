@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span>Endpoints Config</span> {{vm.endpointsConfig.id}}</h2>
+    <hr>
+    <jbt-alert-error></jbt-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Check All</span></dt>
+        <dd>
+            <span>{{vm.endpointsConfig.checkAll}}</span>
+        </dd>
+        <dt><span>Endpoint</span></dt>
+        <dd>
+            <span ng-repeat="endpoint in vm.endpointsConfig.endpoints">
+                <a ui-sref="endpoint-detail({id: endpoint.id})">{{endpoint.url}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span>Fiesta User</span></dt>
+        <dd>
+            <span ng-repeat="fiestaUser in vm.endpointsConfig.fiestaUsers">
+                <a ui-sref="fiesta-user-detail({id: fiestaUser.id})">{{fiestaUser.userId}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="endpoints-config-detail.edit({id:vm.endpointsConfig.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

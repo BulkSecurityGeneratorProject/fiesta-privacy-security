@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span>Experimenter</span> {{vm.experimenter.id}}</h2>
+    <hr>
+    <jbt-alert-error></jbt-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{vm.experimenter.name}}</span>
+        </dd>
+        <dt><span>Groups</span></dt>
+        <dd>
+            <span>{{vm.experimenter.groups}}</span>
+        </dd>
+        <dt><span>User Id</span></dt>
+        <dd>
+            <span>{{vm.experimenter.userId}}</span>
+        </dd>
+        <dt><span>Main Group Name</span></dt>
+        <dd>
+            <span>{{vm.experimenter.mainGroupName}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="experimenter-detail.edit({id:vm.experimenter.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

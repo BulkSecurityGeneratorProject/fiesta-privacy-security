@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="autoIncrement" value="true"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity RequestAccess.
+    -->
+    <changeSet id="20180222135223-1" author="jbooter">
+        <createTable tableName="request_access">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="content" type="clob">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="sensor_hash_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="sensor_original_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="sensor_endpoint" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="requester_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="receiver_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="seen_by_requester" type="bit">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="seen_by_receiver" type="bit">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="approved" type="bit">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="request_date" type="timestamp">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="approved_date" type="timestamp">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="seen_by_requester_date" type="timestamp">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="seen_by_receiver_date" type="timestamp">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="request_sensor_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+
+            <!-- jbooter-needle-liquibase-add-column - JBooter will add columns here, do not remove-->
+        </createTable>
+        <dropDefaultValue tableName="request_access" columnName="request_date" columnDataType="datetime"/>
+        <dropDefaultValue tableName="request_access" columnName="approved_date" columnDataType="datetime"/>
+        <dropDefaultValue tableName="request_access" columnName="seen_by_requester_date" columnDataType="datetime"/>
+        <dropDefaultValue tableName="request_access" columnName="seen_by_receiver_date" columnDataType="datetime"/>
+        
+    </changeSet>
+</databaseChangeLog>
